@@ -1,6 +1,6 @@
 
 import React, {useState} from 'react';
-import { StyleSheet,  View ,TextInput,Button,Text} from 'react-native';
+import { StyleSheet,  View ,TextInput,Button,Text,FlatList} from 'react-native';
 
 export default function App() {
   const [enteredState,setEnteredState]= useState('');
@@ -10,35 +10,40 @@ export default function App() {
 
   }
   const addTasks = ( ) => {
-   setTask(currentTask => [... currentTask,enteredState]);
-    }
+   setTask(currentTask => [... currentTask ,
+    { key: Math.random().toString(),value: enteredState}]);
+    };
 
       return (
     <View style={styles.view}>
         <Text style ={styles.title}>Planing your time!</Text>
       <View style={styles.inputContainer}>
-  
+        
         <TextInput style ={styles.input} placeholder='Add a new task...' onChangeText={taskInput}
                    value={enteredState} />
   
          <Button style={styles.button} title='Add task' onPress={addTasks}/>
     
       </View>
-      <View >
-        {task.map(userTask => (         
+      <FlatList 
+        keyExtractor = {(item,index) => item.id}
+        data = {task}
+        renderItem = { itemData => (
           <View style={styles.task}>
-            <Text key ={userTask}> {userTask} </Text> 
-          </View>))}
-      </View>
+            <Text > {itemData.item.value} </Text> 
+          </View>
+        )}     
+        />
           </View>
   );
 }
 
 const styles = StyleSheet.create({
   view:{
-    padding:40,
+    
     top:'3%',
-    height:'auto'
+    height:'100%',
+    backgroundColor:'#03adfc'
   },
   inputContainer:{
     flexDirection:'row',
@@ -46,27 +51,42 @@ const styles = StyleSheet.create({
     top:20},  
   input:{
     borderRadius:10,
-    borderColor:'black',
+    borderColor:'blue',
     borderWidth:2,
-    width:'80%',
-    padding:7,
-    marginBottom:10,
+    width:'70%',
+    left:15,
+    backgroundColor:'white',
+    textAlign:'center',
+    fontSize:18,
+    top:10,
+    height:50
 
   },
   button:{
     width:'auto',
     height:'auto',
   
+    
+    
+  
 
   },
   title:{
     fontSize: 40,
+    color:'white',
+    textAlign:'center',
+    top:15
+   
    
   },
   task: {
     borderColor:'black',
-    backgroundColor:'grey',
-    padding:10,
-    width: '90%'
+    backgroundColor:'white',
+    padding:18,
+    top:70,
+    alignItems:'center',
+    margin:8,
+    borderRadius:10
+  
   }
 });
