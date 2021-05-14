@@ -23,7 +23,7 @@ export default function App() {
            keyExtractor = {(item,index) => item.id}
            data = {task}
            renderItem = { itemData => 
-             <TaskItem  title ={itemData.item.value} />
+             <TaskItem title ={itemData.item.value} />
         }     
         />
     </View>
