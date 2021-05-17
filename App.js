@@ -14,7 +14,13 @@ export default function App() {
      ... currentTask ,
     { id: Math.random().toString(),value: taskTitle}]);
     };
+    const removeTasks = taskId => {
+      setTask(currentTask => {
+        return currentTask.filter( (Task) => Task.id !== taskId);
 
+      });
+      }
+  
       return (
     <View style={styles.view}>
         <Text style ={styles.title}>Planing your time!</Text>
@@ -23,7 +29,10 @@ export default function App() {
            keyExtractor = {(item,index) => item.id}
            data = {task}
            renderItem = { itemData => 
-             <TaskItem title ={itemData.item.value} />
+         <TaskItem  
+         id ={itemData.item.id} 
+         onDelete= {removeTasks.bind(this,itemData.item.id)}
+         title ={itemData.item.value} />
         }     
         />
     </View>
@@ -47,7 +56,13 @@ const styles = StyleSheet.create({
    
   },
   list:{
-    top:65
+    top:15,
+    height:'auto',
+    margin:5,
+  marginVertical:70
+    
+
   }
+
 
 });
