@@ -13,6 +13,7 @@ export default function App() {
    setTask(currentTask => [
      ... currentTask ,
     { id: Math.random().toString(),value: taskTitle}]);
+   
     };
     const removeTasks = taskId => {
       setTask(currentTask => {
@@ -24,17 +25,17 @@ export default function App() {
       return (
     <View style={styles.view}>
         <Text style ={styles.title}>Planing your time!</Text>
-        <TaskInput onAddTask ={addTasks}/>
        <FlatList  style ={styles.list}
            keyExtractor = {(item,index) => item.id}
            data = {task}
            renderItem = { itemData => 
-         <TaskItem  
-         id ={itemData.item.id} 
-         onDelete= {removeTasks.bind(this,itemData.item.id)}
-         title ={itemData.item.value} />
-        }     
+            <TaskItem  
+            id ={itemData.item.id} 
+            onDelete= {removeTasks.bind(this,itemData.item.id)}
+            title ={itemData.item.value} />
+          }     
         />
+          <TaskInput onAddTask ={addTasks}/>
     </View>
   );
 }
@@ -56,10 +57,13 @@ const styles = StyleSheet.create({
    
   },
   list:{
-    top:15,
-    height:'auto',
-    margin:5,
-  marginVertical:70
+    position:'absolute',
+    height:'75%',
+    width:'100%',
+    top:70
+
+    
+
     
 
   }

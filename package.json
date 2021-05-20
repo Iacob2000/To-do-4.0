@@ -20,7 +20,8 @@
     "react-native-check-box": "^2.1.7",
     "react-native-elements": "^3.4.1",
     "react-native-paper": "^4.8.1",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "~0.13.12",
+    "rn-slider-switch": "0.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

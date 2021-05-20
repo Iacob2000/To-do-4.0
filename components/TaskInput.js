@@ -1,5 +1,5 @@
 import React , {useState} from 'react';
-import {View,TextInput,Button,StyleSheet,Text} from 'react-native'
+import {View,TextInput,Button,StyleSheet,Text,KeyboardAvoidingView,TouchableOpacity} from 'react-native'
 
 
 const TaskInput = props =>  {
@@ -7,16 +7,19 @@ const TaskInput = props =>  {
 
     const taskInput = enteredText => {
         setEnteredState(enteredText);
+        
     };     
     return (
+  <KeyboardAvoidingView>
    <View style={styles.inputContainer}>
         
         <TextInput style ={styles.input} placeholder='Add a new task...' onChangeText={taskInput}
                    value={enteredState}/>
-  
-         <Text style={styles.button} title='Add task' onPress={props.onAddTask.bind(this,enteredState)}> Add Task</Text> 
-         
+        <TouchableOpacity style={styles.button}>
+         <Text   onPress={props.onAddTask.bind(this,enteredState)}>Add Task </Text> 
+         </TouchableOpacity>
    </View>
+   </KeyboardAvoidingView>
     );
 };
 
@@ -25,27 +28,31 @@ const styles = StyleSheet.create({
     inputContainer:{
         flexDirection:'row',
         justifyContent:"space-between",
-        top:20},  
+        position:'absolute',
+        top:720
+        
+        },  
       input:{
         borderRadius:10,
         borderColor:'#03adfc',
         borderWidth:2,
-        width:'70%',
+        width:'75%',
         left:15,
         backgroundColor:'white',
         textAlign:'center',
         fontSize:15,
-        top:40,
         height:50
     
       },
       button:{
         width:'auto',
         height:'auto',
-        color:'blue',
-        top:60,
-        right:20,
-        fontSize:20
+        alignSelf:'center',
+        fontSize:20,
+        backgroundColor:'white',
+        borderRadius:100,
+        padding:10,
+       
       
         
         
