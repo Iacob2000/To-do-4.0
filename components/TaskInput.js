@@ -1,35 +1,51 @@
 import React , {useState} from 'react';
-import {View,TextInput,Button,StyleSheet,Text,KeyboardAvoidingView,TouchableOpacity} from 'react-native'
+import {View,TextInput,Button,
+  StyleSheet,Text,KeyboardAvoidingView,
+  TouchableWithoutFeedback,Platform ,Keyboard} from 'react-native'
 
+  import Slider from '@react-native-community/slider';
 
 const TaskInput = props =>  {
+  const [sliderValue, setSliderValue] = useState(15);
     const [enteredState,setEnteredState]= useState('');
-
+  
     const taskInput = enteredText => {
         setEnteredState(enteredText);
         
     };     
     return (
-  <KeyboardAvoidingView>
-   <View style={styles.inputContainer}>
-        
+
+     
+      <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.inputContainer}>
         <TextInput style ={styles.input} placeholder='Add a new task...' onChangeText={taskInput}
                    value={enteredState}/>
-        <TouchableOpacity style={styles.button}>
-         <Text   onPress={props.onAddTask.bind(this,enteredState)}>Add Task </Text> 
-         </TouchableOpacity>
-   </View>
-   </KeyboardAvoidingView>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} style={styles.button}>
+         <Text  onPress={props.onAddTask.bind(this,enteredState)}>Add Task </Text> 
+         </TouchableWithoutFeedback>
+         </KeyboardAvoidingView>
+
+       
+  
     );
 };
 
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
     inputContainer:{
+        justifyContent:'space-between',
         flexDirection:'row',
-        justifyContent:"space-between",
         position:'absolute',
-        top:720
+        alignItems:'baseline',
+        flex:1,
+        bottom:60,
+        marginBottom:10
+
+       
         
         },  
       input:{

@@ -1,6 +1,6 @@
 
 import React, {useState} from 'react';
-import { StyleSheet,  View ,TextInput,Button,Text,FlatList} from 'react-native';
+import { StyleSheet,  View ,TextInput,Button,Text,FlatList, SafeAreaView,KeyboardAvoidingView} from 'react-native';
 import TaskItem from './components/TaskItem';
 import TaskInput from './components/TaskInput';
 
@@ -23,6 +23,7 @@ export default function App() {
       }
   
       return (
+  <SafeAreaView style ={{flex:1}}>
     <View style={styles.view}>
         <Text style ={styles.title}>Planing your time!</Text>
        <FlatList  style ={styles.list}
@@ -35,8 +36,11 @@ export default function App() {
             title ={itemData.item.value} />
           }     
         />
-          <TaskInput onAddTask ={addTasks}/>
+    
+         
     </View>
+          <TaskInput onAddTask ={addTasks}/>
+    </SafeAreaView>
   );
 }
 
@@ -44,7 +48,7 @@ const styles = StyleSheet.create({
   view:{
     
     top:'3%',
-    height:'100%',
+    height:'130%',
     backgroundColor:'#03adfc'
   },
  
@@ -58,7 +62,7 @@ const styles = StyleSheet.create({
   },
   list:{
     position:'absolute',
-    height:'75%',
+    height:'59%',
     width:'100%',
     top:70
 

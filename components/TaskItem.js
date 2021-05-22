@@ -3,10 +3,11 @@ import React, { useState } from 'react';
 import { Button, Pressable, StyleSheet, Text, View } from 'react-native';
 import { Checkbox } from 'react-native-paper';
 
+import Slider from '@react-native-community/slider';
  
 const TaskItem = (props) => {
   
-
+  const [sliderValue, setSliderValue] = useState(15);
   const [checked, setChecked] = React.useState(false);  
   const [date, setDate] = useState(new Date(1598051730000));
   const [mode, setMode] = useState('date');
@@ -42,6 +43,22 @@ const TaskItem = (props) => {
    
     </View>
     <View style={{padding:30}}>
+       {/*Slider with max, min, step and initial value*/}
+       <Slider
+          position='absolute'
+          width='100%'
+          alignSelf='center'
+          top='15%'
+          maximumValue={100}
+          minimumValue={0}
+          minimumTrackTintColor="#307ecc"
+          maximumTrackTintColor="#000000"
+          step={1}
+          value={sliderValue}
+          onValueChange={
+            (sliderValue) => setSliderValue(sliderValue)
+          }
+        />
     <Text style={styles.title}> {props.title} </Text> 
      
         <Checkbox style={{alignSelf:'flex-start'}}
@@ -69,7 +86,7 @@ const TaskItem = (props) => {
       )}
   </View>
 
-  <Text style={styles.urgent}>Urgent!</Text>
+  
   <Text style={styles.important}>!Important!</Text>
   <Text style={styles.noImportant}>No Important</Text>
   
@@ -122,24 +139,15 @@ title:{
 important:{
     color:'grey',
     fontSize:15,
-    alignSelf:'flex-start',
+    alignSelf:'flex-end',
     position:'absolute',
    
 },
 
-urgent:{
-    color:'grey',
-    fontSize:15,
-    alignSelf:'flex-end',
-    position:'absolute'
 
-    
-
-    
-},
 noImportant:{
     fontSize:15,
-    alignSelf:'center',
+    alignSelf:'flex-start',
     color:'grey',
     position:'absolute'
    
