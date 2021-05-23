@@ -3,36 +3,16 @@ import React, { useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { Checkbox } from 'react-native-paper';
 import Slider from '@react-native-community/slider';
+
+
+
  
 const TaskItem = (props) => {
+  
+
   const [sliderValue, setSliderValue] = useState(15);
   const [checked, setChecked] = React.useState(false);  
-  const [date, setDate] = useState(new Date(1598051730000));
-  const [mode, setMode] = useState('date');
-  const [show, setShow] = useState(false);
   
-  const press = ()=>{
-  setDisable(false)
-  }
-  
-  const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate || date;
-    setShow(Platform.OS === 'ios');
-    setDate(currentDate);
-  };
-  
-  const showMode = (currentMode) => {
-    setShow(true);
-    setMode(currentMode);
-  };
-  
-  const showDatepicker = () => {
-    showMode('date');
-  };
-  
-  const showTimepicker = () => {
-    showMode('time');
-  };
   
   return (
 <View style={styles.task}>
@@ -56,7 +36,7 @@ const TaskItem = (props) => {
           }
         />
     <Text style={styles.title}> {props.title} </Text> 
-    <View style={{  backgroundColor: "#E7E7E7",width:'11%',height:'auto',right:20,top:5,borderRadius:10,flexWrap:'wrap' }} >
+    <View style={{ width:'11%',height:'auto',right:20,top:3,borderRadius:10,flexWrap:'wrap' }} >
         <Checkbox 
               status={checked ? 'checked' : 'unchecked'}
               onPress={() => {
@@ -64,19 +44,7 @@ const TaskItem = (props) => {
               }}
               />
   </View>
-  <View style={styles.time}>
-    <Button  onPress={showTimepicker} title="Set term limit!" />
-  {show && (
-    <DateTimePicker  style={styles.timeset}
-    testID="dateTimePicker"
-    value={date}
-    mode={mode}
-    is24Hour={true}
-    display="default"
-    onChange={onChange}
-    />
-      )}
- </View>
+   
   <Text style={styles.important}>Important!</Text>
   <Text style={styles.noImportant}>No Important</Text>
   <Text onPress={props.onDelete} style={styles.delete}>Delete</Text> 

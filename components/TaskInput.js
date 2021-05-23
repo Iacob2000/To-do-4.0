@@ -32,13 +32,8 @@ const styles = StyleSheet.create({
       alignItems:'baseline',
       flex:1,
       bottom:'2%',
-      marginBottom:"1%",
       width:'100%',
-      padding:5,
-      
-      
-     
-        
+      padding:2,
         },  
       input:{
         borderRadius:15,
@@ -46,7 +41,7 @@ const styles = StyleSheet.create({
         borderWidth:2,
         width:'100%',
         backgroundColor:'white',
-        padding:'4%',
+        padding:'2%',
         fontSize:15,
         alignSelf:'center',
         flexWrap:'wrap',
