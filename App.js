@@ -1,14 +1,12 @@
 
 import React, {useState} from 'react';
-import { StyleSheet,  View ,TextInput,Button,Text,FlatList, SafeAreaView,KeyboardAvoidingView} from 'react-native';
+import { StyleSheet,  View ,Text,FlatList, SafeAreaView,Image, ImageBackground} from 'react-native';
 import TaskItem from './components/TaskItem';
 import TaskInput from './components/TaskInput';
+import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
-
   const [task,setTask]= useState([]);
- 
-  
   const addTasks = taskTitle => {
    setTask(currentTask => [
      ... currentTask ,
@@ -22,10 +20,15 @@ export default function App() {
       });
       }
   
-      return (
-  <SafeAreaView style ={{flex:1}}>
+      return ( 
+  <SafeAreaView style ={{flex:1}}> 
+   <StatusBar style={{backgroundColor:'black'}}></StatusBar>    
     <View style={styles.view}>
+
         <Text style ={styles.title}>Planing your time!</Text>
+        <View style={styles.title2}>
+        <Image  source={require('./assets/clock.png')} /> 
+        </View>
        <FlatList  style ={styles.list}
            keyExtractor = {(item,index) => item.id}
            data = {task}
@@ -35,9 +38,7 @@ export default function App() {
             onDelete= {removeTasks.bind(this,itemData.item.id)}
             title ={itemData.item.value} />
           }     
-        />
-    
-         
+        />    
     </View>
           <TaskInput onAddTask ={addTasks}/>
     </SafeAreaView>
@@ -46,31 +47,27 @@ export default function App() {
 
 const styles = StyleSheet.create({
   view:{
-    
-    top:'3%',
     height:'130%',
     backgroundColor:'#03adfc'
   },
- 
   title:{
-    fontSize: 40,
+    fontSize: 30,
     color:'white',
     textAlign:'center',
-    top:15
+    top:'4%'
+  },
+  title2:{ 
+    flexWrap:'wrap',
+    alignSelf:'center',
+    top:'20%',
+    right:'5%',
    
-   
+    position:'relative'
   },
   list:{
     position:'absolute',
-    height:'59%',
+    height:'57%',
     width:'100%',
-    top:70
-
-    
-
-    
-
+    top:'10%'
   }
-
-
 });

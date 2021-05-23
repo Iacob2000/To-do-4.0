@@ -1,78 +1,71 @@
 import React , {useState} from 'react';
-import {View,TextInput,Button,
-  StyleSheet,Text,KeyboardAvoidingView,
-  TouchableWithoutFeedback,Platform ,Keyboard} from 'react-native'
-
-  import Slider from '@react-native-community/slider';
+import {TextInput,
+        StyleSheet,
+        Text,
+        KeyboardAvoidingView,
+        TouchableWithoutFeedback,
+        Platform ,
+        Keyboard} from 'react-native'
 
 const TaskInput = props =>  {
-  const [sliderValue, setSliderValue] = useState(15);
     const [enteredState,setEnteredState]= useState('');
-  
     const taskInput = enteredText => {
-        setEnteredState(enteredText);
-        
+        setEnteredState(enteredText); 
     };     
     return (
-
-     
-      <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={styles.inputContainer}>
+  <KeyboardAvoidingView
+              behavior={Platform.OS === "ios" ? "padding" : "height"} 
+              style={styles.inputContainer}>
         <TextInput style ={styles.input} placeholder='Add a new task...' onChangeText={taskInput}
                    value={enteredState}/>
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss} style={styles.button}>
-         <Text  onPress={props.onAddTask.bind(this,enteredState)}>Add Task </Text> 
-         </TouchableWithoutFeedback>
-         </KeyboardAvoidingView>
-
-       
-  
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} style={styles.button}>
+         <Text style={styles.button} onPress={props.onAddTask.bind(this,enteredState)}>Add Task </Text> 
+      </TouchableWithoutFeedback>
+  </KeyboardAvoidingView>
     );
 };
-
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
     inputContainer:{
-        justifyContent:'space-between',
-        flexDirection:'row',
-        position:'absolute',
-        alignItems:'baseline',
-        flex:1,
-        bottom:60,
-        marginBottom:10
-
-       
+      justifyContent:'space-between',
+      flexDirection:'row',
+      position:'absolute',
+      alignItems:'baseline',
+      flex:1,
+      bottom:'2%',
+      marginBottom:"1%",
+      width:'100%',
+      padding:5,
+      
+      
+     
         
         },  
       input:{
-        borderRadius:10,
-        borderColor:'#03adfc',
+        borderRadius:15,
+        borderColor:'grey',
         borderWidth:2,
-        width:'75%',
-        left:15,
+        width:'100%',
         backgroundColor:'white',
-        textAlign:'center',
+        padding:'4%',
         fontSize:15,
-        height:50
-    
+        alignSelf:'center',
+        flexWrap:'wrap',
+       
+      
+      
+       
       },
       button:{
         width:'auto',
         height:'auto',
         alignSelf:'center',
-        fontSize:20,
-        backgroundColor:'white',
+        fontSize:15,
         borderRadius:100,
-        padding:10,
-       
-      
+        right:'170%',
+        color:'#03adfc',
+        position:'relative'
+
         
-        
       
-    
       }})
 export default TaskInput;

@@ -19,8 +19,10 @@
     "react-native-bem-check-box": "^1.0.0",
     "react-native-bouncy-checkbox": "^2.1.0",
     "react-native-check-box": "^2.1.7",
+    "react-native-checkbox-form": "^1.1.5",
     "react-native-elements": "^3.4.1",
     "react-native-paper": "^4.8.1",
+    "react-native-splash-screen": "^3.2.0",
     "react-native-web": "~0.13.12",
     "rn-slider-switch": "0.0.3"
   },

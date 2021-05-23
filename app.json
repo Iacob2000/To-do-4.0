@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "ToDo4.0",
-    "slug": "ToDo4.0",
+    "name": "To do list",
+    "slug": "ToDo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/28518,jpg",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/28518,jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
