@@ -11,7 +11,13 @@ const TaskInput = props =>  {
     const [enteredState,setEnteredState]= useState('');
     const taskInput = enteredText => {
         setEnteredState(enteredText); 
+        
     };     
+    const addtask = () => {
+      props.onAddTask(enteredState) 
+      setEnteredState('')
+      
+  };   
     return (
   <KeyboardAvoidingView
               behavior={Platform.OS === "ios" ? "padding" : "height"} 
@@ -19,7 +25,7 @@ const TaskInput = props =>  {
         <TextInput style ={styles.input} placeholder='Add a new task...' onChangeText={taskInput}
                    value={enteredState}/>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} style={styles.button}>
-         <Text style={styles.button} onPress={props.onAddTask.bind(this,enteredState)}>Add Task </Text> 
+         <Text style={styles.button} onPress={addtask}>Add Task </Text> 
       </TouchableWithoutFeedback>
   </KeyboardAvoidingView>
     );
