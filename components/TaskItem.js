@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, Platform, StyleSheet, Text, View } from 'react-native';
 import { Checkbox } from 'react-native-paper';
 import Slider from '@react-native-community/slider';
 
@@ -18,7 +18,7 @@ const TaskItem = (props) => {
           position='absolute'
           width='100%'
           alignSelf='center'
-          top= {15}
+          top= {Platform.OS === "ios" ? 1 : 10}
           maximumValue={100}
           minimumValue={0}
           minimumTrackTintColor="#307ecc"
@@ -30,8 +30,8 @@ const TaskItem = (props) => {
           }
         />
     <Text style={styles.title}> {props.title} </Text> 
-    <View style={{borderRadius:10,position:'absolute' ,top:30}} >
-        <Checkbox 
+    <View style={{borderRadius:20,position:'absolute' ,top:25,backgroundColor:Platform.OS === 'ios' ? '#e6e6e1' : 'white'}} >
+        <Checkbox
               
               status={checked ? 'checked' : 'unchecked'}
               onPress={() => {
@@ -67,7 +67,7 @@ delete:{
 title:{
    
     fontSize:15,
-    left:30,
+    left:40,
     alignSelf:'flex-start',
     top:35,
     width:'50%',

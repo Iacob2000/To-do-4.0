@@ -20,7 +20,7 @@ const TaskInput = props =>  {
   };   
     return (
   <KeyboardAvoidingView
-              behavior={Platform.OS === "ios" ? "padding" : "height"} 
+              
               style={styles.inputContainer}>
         <TextInput style ={styles.input} placeholder='Add a new task...' onChangeText={taskInput}
                    value={enteredState}/>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
       flex:1,
       bottom:'2%',
       width:'100%',
-      padding:2,
+      padding:'2%',
         },  
       input:{
         borderRadius:15,
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         borderWidth:2,
         width:'100%',
         backgroundColor:'white',
-        padding:'2%',
+        padding:'3%',
         fontSize:15,
         alignSelf:'center',
         flexWrap:'wrap',

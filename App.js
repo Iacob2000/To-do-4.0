@@ -1,6 +1,6 @@
 
 import React, {useState} from 'react';
-import { StyleSheet,  View ,Text,FlatList, SafeAreaView,Image, ImageBackground} from 'react-native';
+import { StyleSheet,  View ,Text,FlatList, SafeAreaView,Image, ImageBackground, Dimensions} from 'react-native';
 import TaskItem from './components/TaskItem';
 import TaskInput from './components/TaskInput';
 import { StatusBar } from 'expo-status-bar';
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
   list:{
     position:'absolute',
-    height:'57%',
+    height:Dimensions.get('window').height > 700 ? '65%' : '60%',
     width:'100%',
     top:'10%'
   }
