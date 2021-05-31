@@ -4,13 +4,11 @@
     "slug": "ToDo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/28518.jpg",
+    "icon": "./assets/kisspng-business-process-company-business-administration-s-5b07c27dd32ef2.472654521527235197865.png",
     "splash": {
-      "image": "./assets/28518.jpg",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff",
-      "bundleIdentifier": "com.iacobs.todo",
-      "buildNumber": "1.0.0"
+      "image": "./assets/kisspng-business-process-company-business-administration-s-5b07c27dd32ef2.472654521527235197865.png",
+
+      "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,16 +21,13 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/28518.jpg",
+        "foregroundImage": "./assets/kisspng-business-process-company-business-administration-s-5b07c27dd32ef2.472654521527235197865.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.iacobs.ToDo",
-      "versionCode": 1,
-      "permissions": []
+      "package": "com.iacobs.myproject"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "description": "To do list app"
+      "favicon": "./assets/kisspng-business-process-company-business-administration-s-5b07c27dd32ef2.472654521527235197865.png"
+    }
   }
 }
