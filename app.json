@@ -2,7 +2,7 @@
   "expo": {
     "name": "To do list",
     "slug": "ToDo",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/kisspng-business-process-company-business-administration-s-5b07c27dd32ef2.472654521527235197865.png",
     "splash": {
@@ -17,14 +17,18 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.iacobs.myproject",
+      "buildNumber": "2.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/kisspng-business-process-company-business-administration-s-5b07c27dd32ef2.472654521527235197865.png",
         "backgroundColor": "#FFFFFF"
+     
       },
-      "package": "com.iacobs.myproject"
+      "package": "com.iacobs.toDoList",
+      "versionCode":2
     },
     "web": {
       "favicon": "./assets/kisspng-business-process-company-business-administration-s-5b07c27dd32ef2.472654521527235197865.png"
