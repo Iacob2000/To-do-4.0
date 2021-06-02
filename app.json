@@ -18,8 +18,8 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.iacobs.myproject",
-      "buildNumber": "2.0.0"
+      "bundleIdentifier": "com.iacobs.mytoDoList",
+      "buildNumber": "3.0.0"
     },
     "android": {
       "adaptiveIcon": {
@@ -27,8 +27,8 @@
         "backgroundColor": "#FFFFFF"
      
       },
-      "package": "com.iacobs.toDoList",
-      "versionCode":2
+      "package": "com.iacobs.mytoDoList",
+      "versionCode":3
     },
     "web": {
       "favicon": "./assets/kisspng-business-process-company-business-administration-s-5b07c27dd32ef2.472654521527235197865.png"
